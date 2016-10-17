@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IndusTechApp</string>
-    <string name="MainActivityDialogue">Welcome to the IndusTech, please choose an option below</string>
+    <string name="MainActivityDialogue">WELCOME TO THE INDUSTECH APP</string>
+    <string name="MainActivityDialogue2">PLEASE CHOOSE AN OPTION BELOW</string>
     <string name="ScanButtonText">Scan</string>
     <string name="DataButtonText">Data</string>
     <string name="RtvButtonText">Real Time Value</string>
