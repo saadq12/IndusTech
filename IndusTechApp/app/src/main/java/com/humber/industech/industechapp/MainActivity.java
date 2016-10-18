@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         RTVButton.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
-                Intent RtvButtonIntent = new Intent(MainActivity.this, DataActivity.class);
+                Intent RtvButtonIntent = new Intent(MainActivity.this, RtvActivity.class);
                 startActivity(RtvButtonIntent);
             }
         });

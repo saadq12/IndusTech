@@ -11,33 +11,6 @@
     tools:context="com.humber.industech.industechapp.MainActivity"
     android:background="@drawable/backgroundwallpaper">
 
-    <Button
-        android:text="@string/ScanButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:id="@+id/ScanBtn"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="@string/RtvButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RtvBtn"
-        android:layout_marginTop="55dp"
-        android:layout_below="@+id/DataBtn"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="@string/DataButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/DataBtn"
-        android:layout_marginTop="43dp"
-        android:layout_below="@+id/ScanBtn"
-        android:layout_alignStart="@+id/ScanBtn" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,5 +29,32 @@
         android:id="@+id/textView4"
         android:layout_below="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
+
+    <Button
+        android:text="@string/ScanButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:id="@+id/ScanBtn"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/RtvButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RtvBtn"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/DataBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/DataButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DataBtn"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/ScanBtn"
+        android:layout_alignStart="@+id/ScanBtn" />
 
 </RelativeLayout>
