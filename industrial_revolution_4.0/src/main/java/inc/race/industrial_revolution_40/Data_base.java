@@ -10,4 +10,12 @@ public class Data_base extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_base);
     }
+    
+     public	void	back(View view)	{
+        Intent intent	=	null;
+        intent	=	new	Intent(Scan.this, Main.class);
+        startActivity(intent);
+
+
+    }		//	end	of	AndroidTestAcDvity
 }
