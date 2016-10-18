@@ -19,7 +19,7 @@ public class Data_base extends AppCompatActivity {
     
      public	void	back(View view)	{
         Intent intent	=	null;
-        intent	=	new	Intent(Scan.this, Main.class);
+        intent	=	new	Intent(Data_base.this, Main.class);
         startActivity(intent);
 
 
