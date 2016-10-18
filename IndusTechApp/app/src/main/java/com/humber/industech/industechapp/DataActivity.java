@@ -1,3 +1,8 @@
+/**
+ * Project name: Industrial Revolution 4.0
+ * Team name: IndusTech
+ * Members: Abhirup Das, Saad Qazi and Ratha Ariyanayagam
+ */
 package com.humber.industech.industechapp;
 
 import android.graphics.Typeface;
