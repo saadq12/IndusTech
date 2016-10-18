@@ -1,3 +1,9 @@
+/**
+ * Project name: Industrial Revolution 4.0
+ * Team name: IndusTech
+ * Members: Abhirup Das, Saad Qazi and Ratha Ariyanayagam
+ */
+
 package inc.race.industrial_revolution_40;
 
 import android.app.Activity;
