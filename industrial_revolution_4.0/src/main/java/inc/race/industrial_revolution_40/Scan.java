@@ -29,7 +29,7 @@ public class Scan extends AppCompatActivity {
         final Activity activity = this;
         LaunchCamera.setOnClickListener(new View.OnClickListener()
         {
-            public void onClick(View view)
+            public void onClick(View view) //on pressing the button
             {
                 IntentIntegrator integrator = new IntentIntegrator(activity);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);

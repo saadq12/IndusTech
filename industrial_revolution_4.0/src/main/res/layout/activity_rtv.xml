@@ -11,18 +11,6 @@
     android:background="@drawable/backgroundwallpaper">
 
 
-
-    <Button
-        android:text="@string/BackButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/BackButton"
-        android:onClick="back"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        />
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -148,5 +136,23 @@
             android:textColor="@color/black"/>
 
     </LinearLayout>
+
+    <Button
+        android:text="@string/BackButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/buttonbackmain" />
+
+    <Button
+        android:text="Back To Machine List"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BackButton"
+        android:onClick="back"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
