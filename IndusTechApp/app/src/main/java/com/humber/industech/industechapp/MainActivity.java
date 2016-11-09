@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         DBHandler DB = new DBHandler(this);
         //inserting rows(login creds)
-        DB.addLoginCred(new LoginCred("SaadQazi","NotMyPassword"));
-        DB.addLoginCred(new LoginCred("AbhirupDas","testPassword"));
-        DB.addLoginCred(new LoginCred("Tanav Sharma","nopassword"));
+        //DB.addLoginCred(new LoginCred("SaadQazi","NotMyPassword"));
+        //DB.addLoginCred(new LoginCred("AbhirupDas","testPassword"));
+        //DB.addLoginCred(new LoginCred("Tanav Sharma","nopassword"));
 
         // Reading all login creds
         Log.d("Reading: ","Reading all logins creds");

@@ -19,9 +19,9 @@ public class DBHandler extends SQLiteOpenHelper {
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
-    private static final String DATABASE_NAME = "Login";
+    private static final String DATABASE_NAME = "industech.db";
     // Contacts table name
-    private static final String TABLE_LOGIN = "LoginCreds";
+    private static final String TABLE_LOGIN = "login_creds";
     // Shops Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_USERNAME = "username";
@@ -81,7 +81,7 @@ public class DBHandler extends SQLiteOpenHelper {
             return contact;
     }
 
-    // Getting All Shops
+    // Getting All Logins
     public List<LoginCred> getAllLogins() {
         List<LoginCred> LoginList = new ArrayList<LoginCred>();
         //select all query
@@ -133,6 +133,28 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete(TABLE_LOGIN, KEY_ID + " = ?",
                 new String[] {String.valueOf(loginCred.getId())});
         db.close();
+    }
+
+
+
+    //validate login cred(logging in)
+
+    public boolean validateLogin(String username, String password){
+
+        String query = "SELECT username, password FROM " + TABLE_LOGIN;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do {
+
+            }while(cursor.moveToNext());
+
+
+        }
+
+
+        return true;
     }
 
 
