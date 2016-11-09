@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Typeface customFont = Typeface.createFromAsset(getAssets(),"fonts/Prezident.ttf");
         t.setTypeface(customFont);
 
-        //adedd comment
-
-        //this was just another test
 
         //setting click listener to the scan button so it can go to a ScanActivity
         ScanButton = (Button) findViewById(R.id.ScanBtn);
