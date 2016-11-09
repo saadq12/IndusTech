@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Industrial_Revolution_4.0</string>
+    <string name="Login">Username:</string>
+    <string name="Password">Password:</string>
+    <string name="enter">ENTER</string>
+
+
+    <string name="MainActivityDialogue">Welcome to the IndusTech, please choose an option below</string>
+    <string name="ScanButtonText">Scan</string>
+    <string name="DataButtonText">Data</string>
+    <string name="RtvButtonText">Real Time Value</string>
+    <string name="ScanButtonDialogue">Scan Acitivity has been opened...</string>
+    <string name="ClickToScanText">click to scan</string>
+    <string name="BackButtonText">BACK</string>
+    <string name="title_activity_data">DataActivity</string>
+    <string name="DataActivityDialouge">Data Activity has been opened...</string>
+    <string name="Voltage">REAL TIME INFO</string>
+    <string name="Temp">Temperature :  </string>
+    <string name="Volt">Voltage :  </string>
+    <string name="State">States :  </string>
+    <string name="error">ERROR MESSAGE :   </string>
+</resources>
