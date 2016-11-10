@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,21 +141,34 @@ public class DBHandler extends SQLiteOpenHelper {
     //validate login cred(logging in)
 
     public boolean validateLogin(String username, String password){
-
+        boolean foundUser = false;
+        Log.d("LFDBHANDLER: ", "validateLogin FUNCTION CHECKING IN");
         String query = "SELECT username, password FROM " + TABLE_LOGIN;
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery(query,null);
+
+
+
+        String u,p;
         if(cursor.moveToFirst()){
             do {
+                u = cursor.getString(0);
+                p = cursor.getString(1);
+
+                if(u.equals(username) && p.equals(password)){
+                    Log.d("DBHANDLER: ", "IF STATEMENT CHECKING IN, found user");
+                    foundUser = true;
+                }
+                else
+                {
+                    //searched whole query, no user found.
+                   foundUser = false;
+                }
 
             }while(cursor.moveToNext());
-
-
         }
-
-
-        return true;
+        return foundUser;
     }
 
 
