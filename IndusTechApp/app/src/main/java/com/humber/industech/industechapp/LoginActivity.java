@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextView t;
     private Button loginbttn;
     private EditText username, password;
     private String unm, psw;
+
 
 
 
@@ -30,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         t = (TextView) findViewById(R.id.textView6);
         Typeface customFont = Typeface.createFromAsset(getAssets(),"fonts/Prezident.ttf");
         t.setTypeface(customFont);
+        Log.d("DBhandler"," before call");
+        addUser();
+        Log.d("DBhandler"," after call");
 
         //assign EditText to layouts (to get username, password)
         username = (EditText)findViewById(R.id.editText);
@@ -87,6 +93,22 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return foundUser;
+    }
+
+
+    public void addUser(){
+        DBHandler DB = new DBHandler(this);
+        DB.addLoginCred(new LoginCred("Saad","Password"));
+        Log.d("Reading: ","Reading all logins creds");
+        List<LoginCred> loginCreds = DB.getAllLogins();
+
+        for (LoginCred loginCred : loginCreds){
+
+            String log = "ID: " + loginCred.getId() + " , Username: " + loginCred.getUsername() + " , Password: " + loginCred.getPassword();
+            //writing to log
+            Log.d("Login:", log);
+        }
+
     }
 
 

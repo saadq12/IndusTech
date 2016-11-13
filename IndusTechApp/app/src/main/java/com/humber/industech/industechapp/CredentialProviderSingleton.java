@@ -16,7 +16,7 @@ public class CredentialProviderSingleton {
     public static CognitoCachingCredentialsProvider getInstance(Context context){
         if (credentialProvider == null){
             credentialProvider = new CognitoCachingCredentialsProvider(
-                    context.getApplicationContext(),"us-west-2:0e7ddbfd-a548-43d5-8636-af4ebff8975f", Regions.US_WEST_2);
+                    context.getApplicationContext(),"us-east-1:4c1e1831-5f3a-4942-9acb-c3e83193b7ca", Regions.US_EAST_1);
         }
         return credentialProvider;
     }

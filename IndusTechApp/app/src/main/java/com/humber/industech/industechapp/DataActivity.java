@@ -20,8 +20,9 @@ public class DataActivity extends AppCompatActivity {
     private TextView t;
     private Context mContext;
 
-  //  CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
 
+  //  CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
+  DynamoDBMapper mapper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +59,17 @@ public class DataActivity extends AppCompatActivity {
 
 */
 
+        CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
+        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+        mapper = new DynamoDBMapper(ddbClient);
+
+
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 saveData();
+                saveLogin();
                 Log.d("new thread","data thread saying hello");
             }
 
@@ -72,9 +80,6 @@ public class DataActivity extends AppCompatActivity {
 
     public void saveData(){
 
-        CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
         Book book = new Book();
         book.setTitle("Test");
         book.setAuthor("Charles Dickens");
@@ -82,6 +87,16 @@ public class DataActivity extends AppCompatActivity {
         book.setIsbn("1235674");
         book.setHardCover(false);
         mapper.save(book);
+
+    }
+
+    public void saveLogin(){
+
+        Login login = new Login();
+        login.setUsername("Saad Qazi");
+        login.setPassword("password!");
+        login.setId("2");
+        mapper.save(login);
 
     }
 
