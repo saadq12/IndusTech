@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         //DB.addLoginCred(new LoginCred("SaadQazi","NotMyPassword"));
         //DB.addLoginCred(new LoginCred("AbhirupDas","testPassword"));
         //DB.addLoginCred(new LoginCred("Tanav Sharma","nopassword"));
-        DB.addLoginCred(new LoginCred("Saad","Password"));
+        //DB.addLoginCred(new LoginCred("Saad","Password"));
 
         // Reading all login creds
         Log.d("Reading: ","Reading all logins creds");

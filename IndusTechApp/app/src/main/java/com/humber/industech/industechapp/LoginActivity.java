@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void addUser(){
         DBHandler DB = new DBHandler(this);
-        DB.addLoginCred(new LoginCred("Saad","Password"));
+       // DB.addLoginCred(new LoginCred("Saad","Password"));
         Log.d("Reading: ","Reading all logins creds");
         List<LoginCred> loginCreds = DB.getAllLogins();
 

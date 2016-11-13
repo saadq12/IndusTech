@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
@@ -19,6 +20,9 @@ public class DataActivity extends AppCompatActivity {
 
     private TextView t;
     private Context mContext;
+    public String un,pw, id;
+    public TextView testtextview;
+    Handler hanlder = new Handler();
 
 
   //  CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
@@ -62,18 +66,40 @@ public class DataActivity extends AppCompatActivity {
         CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
         AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
         mapper = new DynamoDBMapper(ddbClient);
+        testtextview = (TextView)findViewById(R.id.textView7);
+        Thread t = new Thread(){
+            public void run(){
+                testtextview.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        getLogin();
+                        testtextview.setText(un + pw + id);
+                    }
+                });
+            }
+        };
 
 
+
+        /*
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                saveData();
-                saveLogin();
+                //saveData();
+                //saveLogin();
+                //getLogin();
                 Log.d("new thread","data thread saying hello");
+                Login selectedLogin = mapper.load(Login.class, "2");
+                un = selectedLogin.getUsername();
+                pw = selectedLogin.getPassword();
             }
 
         }).start();
+        */
+
+        //testtextview = (TextView)findViewById(R.id.textView7);
+        //testtextview.setText(un + pw + id);
 
 
     }
@@ -97,6 +123,17 @@ public class DataActivity extends AppCompatActivity {
         login.setPassword("password!");
         login.setId("2");
         mapper.save(login);
+
+
+    }
+
+    public void getLogin(){
+        Login selectedLogin = mapper.load(Login.class, "2");
+        un = selectedLogin.getUsername();
+        pw = selectedLogin.getPassword();
+        id = selectedLogin.getId();
+        Log.d("getLogin",selectedLogin.getUsername() + selectedLogin.getId() + selectedLogin.getPassword());
+        //testtextview.setText(un + pw + id);
 
     }
 
