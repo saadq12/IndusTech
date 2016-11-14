@@ -32,6 +32,7 @@ public class Scan extends AppCompatActivity {
             public void onClick(View view) //on pressing the button
             {
                 IntentIntegrator integrator = new IntentIntegrator(activity);
+                //  add premission
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
                 integrator.setPrompt("Scan");
                 integrator.setCameraId(0);
@@ -50,6 +51,13 @@ public class Scan extends AppCompatActivity {
                 Toast.makeText(this, " You cancelled the Scan", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, output.getContents(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Scan.this, Data_base.class);
+                intent.putExtra("input",  output.getContents() );
+                startActivity(intent);
+
+
+                // output.getContents();
+
             }
 
         }
