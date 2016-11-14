@@ -1,11 +1,6 @@
-/**
- * Project name: Industrial Revolution 4.0
- * Team name: IndusTech
- * Members: Abhirup Das, Saad Qazi and Ratha Ariyanayagam
- */
-
 package com.humber.industech.industechapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.provider.MediaStore;
@@ -14,6 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class ScanActivity extends AppCompatActivity {
 
@@ -34,24 +33,40 @@ public class ScanActivity extends AppCompatActivity {
 
         LaunchCameraBttn = (Button)findViewById(R.id.LaunchCamera);
 
-        LaunchCameraBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, 0);
+        LaunchCameraBttn = (Button)findViewById(R.id.LaunchCamera);
+        final Activity activity = this;
+
+
+        LaunchCameraBttn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view) //on pressing the button
+            {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
             }
         });
-        /*
-        //setting click listener to the scan button so it can go launch the camera
-        ScanButtonIntent = (Button) findViewById(R.id.ScanBtn);
 
-        ScanButtonIntent.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivityForResult(intent, 0);
+    }//endoncreate
+
+    //handle result of QR code, and show result as a toast
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult output = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (output != null) {
+            if (output.getContents() == null) {
+                Toast.makeText(this, " You cancelled the Scan", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, output.getContents(), Toast.LENGTH_LONG).show();
             }
-        });
-        */
 
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
