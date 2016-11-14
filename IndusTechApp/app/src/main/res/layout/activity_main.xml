@@ -21,16 +21,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="@string/MainActivityDialogue2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
     <Button
+        style="@style/buttons"
         android:text="@string/ScanButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +32,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        style="@style/buttons"
         android:text="@string/RtvButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,6 +42,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        style="@style/buttons"
         android:text="@string/DataButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,5 +50,15 @@
         android:layout_marginTop="29dp"
         android:layout_below="@+id/ScanBtn"
         android:layout_alignStart="@+id/ScanBtn" />
+
+    <TextView
+        style="@style/textviewsdialouge"
+        android:text="@string/MainActivityDialogue2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

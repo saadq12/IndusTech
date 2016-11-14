@@ -2,7 +2,7 @@
     <string name="app_name">IndusTechApp</string>
     <string name="LoginActivityDialouge">INDUSTECH APP LOGIN</string>
     <string name="MainActivityDialogue">WELCOME TO THE INDUSTECH APP</string>
-    <string name="MainActivityDialogue2">PLEASE CHOOSE AN OPTION BELOW</string>
+    <string name="MainActivityDialogue2">Please Choose An Option Below</string>
     <string name="ScanButtonText">Scan</string>
     <string name="DataButtonText">Data</string>
     <string name="RtvButtonText">Real Time Value</string>
@@ -15,5 +15,11 @@
     <string name="RTVActivityHeader">REAL TIME VALUES</string>
     <string name="username">Enter Username</string>
     <string name="password">Enter Password</string>
+    <string name="temp">Temperature:</string>
+    <string name="voltage">Voltage:</string>
+    <string name="error">Error:</string>
+    <string name="mach1">Machine 1</string>
+    <string name="logindialouge2">Please Enter Your Username and Password.</string>
+    <string name="fetching">fetching...</string>
 
 </resources>

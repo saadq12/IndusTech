@@ -1,5 +1,6 @@
 package com.humber.industech.industechapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -21,12 +22,11 @@ public class DataActivity extends AppCompatActivity {
     private TextView t;
     private Context mContext;
     public String un,pw, id;
-    public TextView testtextview;
-    Handler hanlder = new Handler();
+    Handler mhanlder = new Handler();
+    TextView tv7;
 
-
-  //  CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
   DynamoDBMapper mapper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,9 @@ public class DataActivity extends AppCompatActivity {
         t = (TextView) findViewById(R.id.textView3);
         Typeface customFont = Typeface.createFromAsset(getAssets(),"fonts/Prezident.ttf");
         t.setTypeface(customFont);
+
+        tv7 = (TextView)findViewById(R.id.textView7);
+        tv7.setText("findviewbyid set");
 
 
        // CredentialProviderSingleton test = new CredentialProviderSingleton();
@@ -66,6 +69,16 @@ public class DataActivity extends AppCompatActivity {
         CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
         AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
         mapper = new DynamoDBMapper(ddbClient);
+
+       Runnable runnable = new Runnable() {
+           @Override
+           public void run() {
+               tv7.setText("text set inside runnable");
+           }
+       };
+        mhanlder.post(runnable);
+
+        /*
         testtextview = (TextView)findViewById(R.id.textView7);
         Thread t = new Thread(){
             public void run(){
@@ -78,10 +91,12 @@ public class DataActivity extends AppCompatActivity {
                 });
             }
         };
+        t.start();
+        */
 
 
 
-        /*
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -93,16 +108,26 @@ public class DataActivity extends AppCompatActivity {
                 Login selectedLogin = mapper.load(Login.class, "2");
                 un = selectedLogin.getUsername();
                 pw = selectedLogin.getPassword();
+
+                final String username = getUserName();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv7.setText(username);
+                    }
+                });
             }
 
         }).start();
-        */
+
 
         //testtextview = (TextView)findViewById(R.id.textView7);
         //testtextview.setText(un + pw + id);
 
 
-    }
+    }//end onCreate
+
 
     public void saveData(){
 
@@ -135,6 +160,13 @@ public class DataActivity extends AppCompatActivity {
         Log.d("getLogin",selectedLogin.getUsername() + selectedLogin.getId() + selectedLogin.getPassword());
         //testtextview.setText(un + pw + id);
 
+    }
+
+    public String getUserName(){
+        String un;
+        Login user = mapper.load(Login.class,"2");
+        un = user.getPassword();
+        return un;
     }
 
 }
