@@ -12,6 +12,7 @@
     android:background="@drawable/backgroundwallpaper">
 
     <Button
+        style="@style/buttons"
         android:text="@string/ClickToScanText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
