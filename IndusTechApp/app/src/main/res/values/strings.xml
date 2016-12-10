@@ -21,5 +21,8 @@
     <string name="mach1">Machine 1</string>
     <string name="logindialouge2">Please Enter Your Username and Password.</string>
     <string name="fetching">fetching...</string>
+    <string name="emi">Enter Machine ID</string>
+    <string name="mid">"ID: </string>
+    <string name="search">Search</string>
 
 </resources>

@@ -62,6 +62,9 @@ public class ScanActivity extends AppCompatActivity {
                 Toast.makeText(this, " You cancelled the Scan", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, output.getContents(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(ScanActivity.this, DataActivity.class);
+                intent.putExtra("input",  output.getContents() );
+                startActivity(intent);
             }
 
         }

@@ -23,7 +23,7 @@ public class DataActivity extends AppCompatActivity {
     private Context mContext;
     public String un,pw, id;
     Handler mhanlder = new Handler();
-    TextView tv7;
+    TextView tv7,scantv;
 
   DynamoDBMapper mapper;
 
@@ -38,6 +38,10 @@ public class DataActivity extends AppCompatActivity {
 
         tv7 = (TextView)findViewById(R.id.textView7);
         tv7.setText("findviewbyid set");
+
+        scantv = (TextView)findViewById(R.id.textView19);
+        String x = getIntent().getStringExtra("input");
+        scantv.setText(x); //leave this line to assign a specific text
 
 
        // CredentialProviderSingleton test = new CredentialProviderSingleton();

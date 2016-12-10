@@ -5,7 +5,11 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
@@ -14,8 +18,11 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 public class RtvActivity extends AppCompatActivity {
 
     private TextView t;
-    TextView temp, volt, err;
+    TextView temp, volt, err,sid,stemp,svolt,serr;
     DynamoDBMapper mapper;
+    EditText searchID;
+    Button searchbtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,54 @@ public class RtvActivity extends AppCompatActivity {
             }
 
         }).start();
+
+
+        searchID = (EditText)findViewById(R.id.editText3);
+        searchbtn = (Button)findViewById(R.id.sbutton);
+
+        sid = (TextView)findViewById(R.id.textView25);
+        stemp = (TextView)findViewById(R.id.textView16) ;
+        svolt = (TextView)findViewById(R.id.textView17);
+        serr = (TextView)findViewById(R.id.textView18);
+
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //create new thread for searching a machine by ID
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        String id = searchID.getText().toString();
+                        Log.d("new thread","rtv thread(search onClickListen) saying hello" + id);
+                        Machines mach = mapper.load(Machines.class,id);
+
+                        final String idf = mach.getmId();
+                        final String stempr = mach.getTemp();
+                        final String sv = mach.getVoltage();
+                        final String ser = mach.getError();
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                sid.setText(idf);
+                                sid.setTextColor(Color.RED);
+                                stemp.setText(stempr);
+                                stemp.setTextColor(Color.RED);
+                                svolt.setText(sv);
+                                svolt.setTextColor(Color.RED);
+                                serr.setText(ser);
+                                serr.setTextColor(Color.RED);
+                            }
+                        });
+                    }
+
+                }).start();
+            }
+        });
+
+
 
 
 
