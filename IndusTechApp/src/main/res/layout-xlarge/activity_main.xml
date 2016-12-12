@@ -16,20 +16,10 @@
         android:layout_height="wrap_content"
         android:text="@string/MainActivityDialogue"
         android:id="@+id/textView"
-        android:textSize="15sp"
-        android:layout_marginTop="37dp"
+        android:textSize="30sp"
+        android:layout_marginTop="126dp"
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        style="@style/buttons"
-        android:text="@string/ScanButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:id="@+id/ScanBtn"
-        android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -38,9 +28,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/RtvBtn"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/DataBtn"
+        android:layout_marginStart="58dp"
+        android:layout_alignBaseline="@+id/DataBtn"
+        android:layout_alignBottom="@+id/DataBtn"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        style="@style/textviewsdialouge"
+        android:text="@string/MainActivityDialogue2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:textSize="25sp"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/buttons"
+        android:text="@string/ScanButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:id="@+id/ScanBtn"
+        android:layout_marginEnd="56dp"
+        android:layout_below="@+id/textView4"
+        android:layout_toStartOf="@+id/textView" />
 
     <Button
         style="@style/buttons"
@@ -48,18 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/DataBtn"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/ScanBtn"
-        android:layout_alignStart="@+id/ScanBtn" />
-
-    <TextView
-        style="@style/textviewsdialouge"
-        android:text="@string/MainActivityDialogue2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView"
+        android:layout_alignBaseline="@+id/ScanBtn"
+        android:layout_alignBottom="@+id/ScanBtn"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

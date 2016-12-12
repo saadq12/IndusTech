@@ -26,6 +26,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
+
         <TextView
             style="@style/textviewsdialouge"
             android:text="@string/mach1"

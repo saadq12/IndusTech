@@ -1,3 +1,7 @@
+/*
+Team Name: IndusTech
+Members: Ratha Ariyanayagam, Saad Qazi, Abhirup Das
+ */
 package com.humber.industech.industechapp;
 
 import android.content.Context;

@@ -13,14 +13,24 @@
 
 
     <TextView
+        style="@style/textviewsdialouge"
+        android:text="@string/logindialouge2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:id="@+id/textView15"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
         android:text="@string/LoginActivityDialouge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginTop="82dp"
+        android:id="@+id/textView6"
         android:layout_alignParentTop="true"
-        android:textSize="16sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:id="@+id/textView6" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -28,10 +38,10 @@
         android:inputType="textPersonName"
         android:hint="@string/username"
         android:ems="10"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:id="@+id/editText" />
+        android:layout_marginTop="109dp"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,9 +50,9 @@
         android:hint="@string/password"
         android:ems="10"
         android:id="@+id/editText2"
+        android:layout_marginTop="51dp"
         android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="42dp" />
+        android:layout_alignStart="@+id/editText" />
 
     <Button
         style="@style/buttons"
@@ -50,17 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/loginbutton"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="83dp"
+        android:layout_below="@+id/editText2"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        style="@style/textviewsdialouge"
-        android:text="@string/logindialouge2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:id="@+id/textView15" />
 
 </RelativeLayout>

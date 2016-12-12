@@ -1,3 +1,7 @@
+/*
+Team Name: IndusTech
+Members: Ratha Ariyanayagam, Saad Qazi, Abhirup Das
+ */
 package com.humber.industech.industechapp;
 
 import android.app.Activity;
@@ -7,6 +11,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +29,7 @@ public class DataActivity extends AppCompatActivity {
     private Context mContext;
     public String un,pw, id;
     Handler mhanlder = new Handler();
-    TextView tv7;
+    TextView tv7,scantv;
 
   DynamoDBMapper mapper;
 
@@ -31,6 +37,7 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
+
         //setting custom font
         t = (TextView) findViewById(R.id.textView3);
         Typeface customFont = Typeface.createFromAsset(getAssets(),"fonts/Prezident.ttf");
@@ -39,43 +46,19 @@ public class DataActivity extends AppCompatActivity {
         tv7 = (TextView)findViewById(R.id.textView7);
         tv7.setText("findviewbyid set");
 
-        String x = getIntent().getStringExtra("input");
-        Toast.makeText(DataActivity.this, x, Toast.LENGTH_SHORT).show();
-
-        TextView textElement = (TextView) findViewById(R.id.Scaninput);
-        textElement.setText(x); //leave this line to assign a specific text
+        //scantv = (TextView)findViewById(R.id.textView19);
 
 
-        // CredentialProviderSingleton test = new CredentialProviderSingleton();
-        //test.getInstance(getApplicationContext());
 
-       // CredentialProviderSingleton.getInstance(this);
 
-        //CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
-        /*
-        // Initialize the Amazon Cognito credentials provider
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                getApplicationContext(),
-                "us-west-2:0e7ddbfd-a548-43d5-8636-af4ebff8975f", // Identity Pool ID
-                Regions.US_WEST_2 // Region
-        );
-        */
-        //AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-       // final DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-    /*
-       final Runnable runnable = new Runnable() {
-            public void run() {
-                //DynamoDB calls go here
-            }
-            Thread mythread = new Thread(runnable);
-            mythread.start();
-
-*/
-
+        //create AWS client connection
         CognitoCachingCredentialsProvider credentialsProvider = CredentialProviderSingleton.getInstance(this);
         AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
         mapper = new DynamoDBMapper(ddbClient);
 
+
+
+       /*
        Runnable runnable = new Runnable() {
            @Override
            public void run() {
@@ -83,44 +66,29 @@ public class DataActivity extends AppCompatActivity {
            }
        };
         mhanlder.post(runnable);
-
-        /*
-        testtextview = (TextView)findViewById(R.id.textView7);
-        Thread t = new Thread(){
-            public void run(){
-                testtextview.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        getLogin();
-                        testtextview.setText(un + pw + id);
-                    }
-                });
-            }
-        };
-        t.start();
         */
-
-
 
 
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                //saveData();
-                //saveLogin();
-                //getLogin();
+
                 Log.d("new thread","data thread saying hello");
                 Login selectedLogin = mapper.load(Login.class, "2");
                 un = selectedLogin.getUsername();
                 pw = selectedLogin.getPassword();
 
                 final String username = getUserName();
+                //saveData("test");
+                String x = getIntent().getStringExtra("input");
+                saveData(x);
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        tv7.setText(username);
+                        String x = getIntent().getStringExtra("input");
+                        tv7.setText("Scanned Data: " + x + "has been saved!");
                     }
                 });
             }
@@ -128,24 +96,32 @@ public class DataActivity extends AppCompatActivity {
         }).start();
 
 
-        //testtextview = (TextView)findViewById(R.id.textView7);
-        //testtextview.setText(un + pw + id);
-
 
     }//end onCreate
 
-
-    public void saveData(){
-
-        Book book = new Book();
-        book.setTitle("Test");
-        book.setAuthor("Charles Dickens");
-        book.setPrice(1299);
-        book.setIsbn("1235674");
-        book.setHardCover(false);
-        mapper.save(book);
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        CharSequence character1 = getString(R.string.action_settings_text);
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Toast.makeText(this, character1, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 
     public void saveLogin(){
 
@@ -164,15 +140,33 @@ public class DataActivity extends AppCompatActivity {
         pw = selectedLogin.getPassword();
         id = selectedLogin.getId();
         Log.d("getLogin",selectedLogin.getUsername() + selectedLogin.getId() + selectedLogin.getPassword());
-        //testtextview.setText(un + pw + id);
+
 
     }
 
     public String getUserName(){
         String un;
         Login user = mapper.load(Login.class,"2");
-        un = user.getPassword();
+        un = user.getUsername();
         return un;
+    }
+
+    //this will store data recived from barcode scan to database on cloud
+    public void saveData(String data){
+        //assign data sent from intent (QR code data) to this string
+        String dataRecviecd = data;
+
+        //split the strings, to grab ID and Data
+        String dataid = dataRecviecd.substring(0,1);
+        String data2 = dataRecviecd.substring(2);
+        Log.d("saveDataFunc",dataid + data2);
+
+        Data DataAWS = new Data();
+        DataAWS.setDataid(dataid);
+        DataAWS.setData(data2);
+        mapper.save(DataAWS);
+
+
     }
 
 }

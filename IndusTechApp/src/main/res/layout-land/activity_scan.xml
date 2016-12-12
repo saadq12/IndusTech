@@ -11,15 +11,6 @@
     tools:context="com.humber.industech.industechapp.ScanActivity"
     android:background="@drawable/backgroundwallpaper">
 
-    <Button
-        style="@style/buttons"
-        android:text="@string/ClickToScanText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/LaunchCamera" />
-
     <TextView
         android:text="@string/ScanActivityHeader"
         android:layout_width="wrap_content"
@@ -28,5 +19,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical|center_horizontal" />
+
+    <Button
+        style="@style/buttons"
+        android:text="@string/ClickToScanText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LaunchCamera"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>
