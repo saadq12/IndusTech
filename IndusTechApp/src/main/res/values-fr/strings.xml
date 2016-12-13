@@ -43,7 +43,7 @@
     <string name="Member">Team Members:</string>
     <string name="Info">INFORMATION</string>
     <string name="info_text">
-        L'application indusTech est une application qui est utilisée pour obtenir des informations sur une machine par numérisation
+        "L'application indusTech est une application qui est utilisée pour obtenir des informations sur une machine par numérisation
     Un QR_code personnalisé qui sera donné à une certaine machine.
     L'application dispose d'une page de connexion où le nom d'utilisateur est "industech" et le mot de passe est "mot de passe".
     Après la connexion, vous verrez un bouton de balayage et un bouton de valeur en temps réel. Le bouton de numérisation
@@ -54,5 +54,5 @@
     Bouton de valeur en temps réel vous amènera à une nouvelle page si elle affichera la température,
     La tension, le message d'erreur et le numéro d'identification de la première machine. Aussi juste en dessous, vous pouvez obtenir
     Les valeurs d'une autre machine en entrant le numéro d'identification de la machine et en cliquant
-    Le bouton de recherche. </string>
+    Le bouton de recherche." </string>
 </resources>
