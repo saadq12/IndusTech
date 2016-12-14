@@ -79,16 +79,24 @@ public class DataActivity extends AppCompatActivity {
                 un = selectedLogin.getUsername();
                 pw = selectedLogin.getPassword();
 
-                final String username = getUserName();
-                //saveData("test");
-                String x = getIntent().getStringExtra("input");
-                saveData(x);
+                if ( getIntent().getStringExtra("input") == null){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(DataActivity.this, "No data Scanned", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else if (getIntent().getStringExtra("input") != null ){
+                    String x = getIntent().getStringExtra("input");
+                    saveData(x);
+                }
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         String x = getIntent().getStringExtra("input");
-                        tv7.setText("Scanned Data: " + x + "has been saved!");
+                        tv7.setText("Scanned Data: " + x + "");
                     }
                 });
             }
