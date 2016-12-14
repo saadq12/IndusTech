@@ -252,7 +252,10 @@ public class ScanActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         CharSequence character1 = getString(R.string.action_settings_text);
         int id = item.getItemId();
+
         if (id == R.id.action_settings) {
+            Intent intent	=	new	Intent(ScanActivity.this, AboutActivity.class);
+            startActivity(intent);
             Toast.makeText(this, character1, Toast.LENGTH_SHORT).show();
             return true;
         }

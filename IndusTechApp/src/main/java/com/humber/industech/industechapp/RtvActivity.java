@@ -4,6 +4,7 @@ Members: Ratha Ariyanayagam, Saad Qazi, Abhirup Das
  */
 package com.humber.industech.industechapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -105,19 +106,36 @@ public class RtvActivity extends AppCompatActivity  {
                         final String sv = mach.getVoltage();
                         final String ser = mach.getError();
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                sid.setText(idf);
-                                sid.setTextColor(Color.parseColor("#031A85"));
-                                stemp.setText(stempr);
-                                stemp.setTextColor(Color.parseColor("#031A85"));
-                                svolt.setText(sv);
-                                svolt.setTextColor(Color.parseColor("#031A85"));
-                                serr.setText(ser);
-                                serr.setTextColor(Color.parseColor("#031A85"));
-                            }
-                        });
+                        if(idf.equals(id)){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(RtvActivity.this, "Found ID", Toast.LENGTH_SHORT).show();
+
+
+                                    sid.setText(idf);
+                                    sid.setTextColor(Color.parseColor("#031A85"));
+                                    stemp.setText(stempr);
+                                    stemp.setTextColor(Color.parseColor("#031A85"));
+                                    svolt.setText(sv);
+                                    svolt.setTextColor(Color.parseColor("#031A85"));
+                                    serr.setText(ser);
+                                    serr.setTextColor(Color.parseColor("#031A85"));
+                                }
+                            });
+
+                        }
+                        else if (idf.equals(id) != true){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(RtvActivity.this, "No ID # Found - Try Again", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                        }
+
+
                     }
 
                 }).start();
@@ -144,7 +162,10 @@ public class RtvActivity extends AppCompatActivity  {
         // as you specify a parent activity in AndroidManifest.xml.
         CharSequence character1 = getString(R.string.action_settings_text);
         int id = item.getItemId();
+
         if (id == R.id.action_settings) {
+            Intent intent	=	new	Intent(RtvActivity.this, AboutActivity.class);
+            startActivity(intent);
             Toast.makeText(this, character1, Toast.LENGTH_SHORT).show();
             return true;
         }

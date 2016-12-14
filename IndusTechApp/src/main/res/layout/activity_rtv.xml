@@ -125,7 +125,7 @@
             <EditText
                 android:layout_width="197dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:hint="@string/emi"
                 android:ems="10"
                 android:id="@+id/editText3" />

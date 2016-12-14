@@ -2,23 +2,23 @@
 <resources>
     <string name="app_name">Industrial Revolution 4.0</string>
     <string name="LoginActivityDialouge">INDUSTRIAL REVOLUTION 4.0 LOGIN</string>
-    <string name="MainActivityDialogue">"Bienvenue à l'INDUSTRIAL REVOLUTION 4.0"</string>
+    <string name="MainActivityDialogue">"BIENVENUE À L'INDUSTRIAL REVOLUTION 4.0"</string>
     <string name="MainActivityDialogue2">"Veuillez choisir une option ci-dessous"</string>
     <string name="ScanButtonText">Scan</string>
     <string name="DataButtonText">Data</string>
-    <string name="RtvButtonText">"La valeur en temps réel"</string>
+    <string name="RtvButtonText">"LA VALEUR EN TEMPS RÉEL"</string>
     <string name="LoginButton">"Cliquez pour entrer"</string>
-    <string name="ScanActivityHeader">"L'activité de numérisation"</string>
+    <string name="ScanActivityHeader">"L'ACTIVITÉ DE NUMÉRISATION"</string>
     <string name="ClickToScanText">"Cliquez sur pour scanner"</string>
     <string name="BackButtonText">"Retour"</string>
     <string name="title_activity_data">DataActivity</string>
     <string name="DataActivityHeader">"L'ACTIVITÉ DE DONNÉES"</string>
-    <string name="RTVActivityHeader">"Les valeurs en temps réel"</string>
+    <string name="RTVActivityHeader">"LES VALEURS EN TEMPS RÉEL"</string>
     <string name="username">"Entrez le nom d'utilisateur"</string>
     <string name="password">"Saisissez le mot de passe"</string>
-    <string name="temp">"Température :"</string>
-    <string name="voltage">"Tension :"</string>
-    <string name="error">"Erreur :"</string>
+    <string name="temp">"Température :"</string>
+    <string name="voltage">"Tension :"</string>
+    <string name="error">"Erreur :"</string>
     <string name="mach1">"La machine 1"</string>
     <string name="logindialouge2">"Veuillez entrer votre nom d'utilisateur et mot de passe."</string>
     <string name="fetching">"De l'extraction..."</string>
@@ -32,9 +32,9 @@
     <!--MAIN-->
     <string name="sing_out">"Se déconnecter"</string>
     <string name="out_message">"Êtes-vous sûr de vouloir vous déconnecter?"</string>
-    <string name="Exit">"App SORTIE"</string>
-    <string name="exit_message">"Souhaitez-vous quitter cette application?"</string>
-    <string name="data_scan">"Les données numérisées :"</string>
+    <string name="close">"App SORTIE"</string>
+    <string name="message_on_close">"Souhaitez-vous quitter cette application?"</string>
+    <string name="data_scan">"Les données numérisées :"</string>
     <string name="saved">"A été enregistrée."</string>
 
     <string name="Ratha">Ratha Ariyanayagam n00998937</string>
@@ -43,7 +43,7 @@
     <string name="Member">Team Members:</string>
     <string name="Info">INFORMATION</string>
     <string name="info_text">
-        L'application indusTech est une application qui est utilisée pour obtenir des informations sur une machine par numérisation
+        "L'application indusTech est une application qui est utilisée pour obtenir des informations sur une machine par numérisation
     Un QR_code personnalisé qui sera donné à une certaine machine.
     L'application dispose d'une page de connexion où le nom d'utilisateur est "industech" et le mot de passe est "mot de passe".
     Après la connexion, vous verrez un bouton de balayage et un bouton de valeur en temps réel. Le bouton de numérisation
@@ -54,5 +54,5 @@
     Bouton de valeur en temps réel vous amènera à une nouvelle page si elle affichera la température,
     La tension, le message d'erreur et le numéro d'identification de la première machine. Aussi juste en dessous, vous pouvez obtenir
     Les valeurs d'une autre machine en entrant le numéro d'identification de la machine et en cliquant
-    Le bouton de recherche. </string>
+    Le bouton de recherche." </string>
 </resources>
