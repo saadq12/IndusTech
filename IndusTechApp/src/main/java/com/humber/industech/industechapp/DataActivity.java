@@ -75,9 +75,11 @@ public class DataActivity extends AppCompatActivity {
 
 
                 Log.d("new thread","data thread saying hello");
+                /*
                 Login selectedLogin = mapper.load(Login.class, "2");
                 un = selectedLogin.getUsername();
                 pw = selectedLogin.getPassword();
+                */
 
                 if ( getIntent().getStringExtra("input") == null){
                     runOnUiThread(new Runnable() {
